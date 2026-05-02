@@ -1,31 +1,13 @@
-name: Build EXE
-
-on:
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: windows-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: npm 초기화 (중요)
-        run: |
-          if not exist package.json (
-            echo {"name":"app","version":"1.0.0"} > package.json
-          )
-
-      - name: Electron 설치
-        run: npm install electron electron-builder
-
-      - name: main.js 생성
-        run: |
-          echo const {app,BrowserWindow}=require('electron');function createWindow(){const win=new BrowserWindow({width:400,height:300});win.loadFile('index.html');}app.whenReady().then(createWindow); > main.js
-
-      - name: EXE 빌드
-        run: npx electron-builder --win --publish never
+- name: package.json 생성
+  shell: powershell
+  run: |
+    @"
+    {
+      "name": "app",
+      "version": "1.0.0",
+      "main": "main.js",
+      "scripts": {
+        "build": "electron-builder"
+      }
+    }
+    "@ | Out-File -Encoding utf8 package.json
