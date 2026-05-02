@@ -1,1 +1,48 @@
-# junheegom1
+<!DOCTYPE html>
+<html>
+<head>
+  <title>버튼 토글</title>
+  <style>
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+
+    .green {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="btn" class="blue" onclick="toggleButton()">
+    버튼을 눌러보세요
+  </button>
+
+  <script>
+    let clicked = false;
+
+    function toggleButton() {
+      const btn = document.getElementById("btn");
+
+      if (!clicked) {
+        btn.innerText = "버튼이 눌렸습니다";
+        btn.className = "green";
+        clicked = true;
+      } else {
+        btn.innerText = "버튼을 눌러보세요";
+        btn.className = "blue";
+        clicked = false;
+      }
+    }
+  </script>
+
+</body>
+</html>
