@@ -1,4 +1,4 @@
-- name: package.json 생성
+- name: Build EXE
   shell: powershell
   run: |
     @"
