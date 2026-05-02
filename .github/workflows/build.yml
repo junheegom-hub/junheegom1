@@ -1,0 +1,23 @@
+name: Build EXE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: 코드 가져오기
+        uses: actions/checkout@v3
+
+      - name: Node 설치
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 패키지 설치
+        run: npm install
+
+      - name: EXE 빌드
+        run: npx electron-builder
