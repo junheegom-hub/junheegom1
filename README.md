@@ -30,9 +30,10 @@
 - 저장소: GitHub
 
 ## 실행 환경
-- 웹 브라우저에서 HTML 실행 가능
+-맥용 dmg 파일로 실행 가능
 - Windows용 EXE 파일로 실행 가능
 
 ## 제작 완료
-GitHub Actions를 이용해 Windows용 EXE 빌드에 성공했습니다.
-파일 다운로드하기>>>> 
+GitHub Actions를 이용해 Windows용 EXE, 맥용 DMG 빌드에 성공했습니다.
+
+
